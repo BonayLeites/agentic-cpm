@@ -1,0 +1,170 @@
+{
+  "app": {
+    "title": "CPM Agent Accelerator",
+    "subtitle": "NikkoGroup | v1.0"
+  },
+  "nav": {
+    "home": "Home",
+    "workflowRun": "Workflow Run",
+    "findings": "Findings",
+    "summary": "Executive Summary",
+    "audit": "Audit Trail"
+  },
+  "home": {
+    "selectWorkflow": "Select a workflow",
+    "case1Title": "Pre-Close & Consolidation Review",
+    "case1Desc": "Automates pre-close review: IC reconciliation, anomaly detection, exception prioritization.",
+    "case1Audience": "Audience: Controller",
+    "case2Title": "Executive Performance Review",
+    "case2Desc": "Transforms performance data into decision support: variance analysis, KPI synthesis, risk flags, board-ready materials.",
+    "case2Audience": "Audience: CFO / ExCo",
+    "select": "Select",
+    "statsTemplate": "{{entities}} entities | {{months}} months data | {{docs}} knowledge docs"
+  },
+  "workflow": {
+    "runButton": "Run AI Review",
+    "running": "Running...",
+    "viewConfig": "View Config",
+    "viewFindings": "View Findings",
+    "viewSummary": "View Summary",
+    "timeline": "Workflow Timeline",
+    "activityLog": "Activity Log",
+    "statusLabel": "Status",
+    "totalTime": "Total",
+    "stepsCompleted": "{{completed}}/{{total}}",
+    "parallel": "parallel",
+    "status": {
+      "pending": "Pending",
+      "running": "Running",
+      "completed": "Completed",
+      "failed": "Failed",
+      "queued": "Queued",
+      "escalated": "Escalated"
+    },
+    "stepNames": {
+      "load_data": "Data Validation",
+      "ic_check": "Intercompany Review",
+      "anomaly_detect": "Anomaly Scan",
+      "doc_search": "Document Grounding",
+      "analysis": "Findings Synthesis",
+      "narrative": "Summary Generation",
+      "quality_gate": "Quality Gate",
+      "variance_analysis": "Variance Analysis",
+      "kpi_analysis": "KPI Analysis"
+    },
+    "sse": {
+      "started": "Started",
+      "completed": "Completed in {{duration}} — {{findings}} findings",
+      "failed": "Failed: {{error}}",
+      "escalated": "Escalated: {{reason}}",
+      "runCompleted": "Workflow completed — {{findings}} findings in {{duration}}",
+      "reconnecting": "Reconnecting..."
+    }
+  },
+  "findings": {
+    "title": "Findings",
+    "all": "All",
+    "severity": {
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low"
+    },
+    "evidence": "Evidence",
+    "suggestedQuestions": "Suggested Questions",
+    "suggestedActions": "Suggested Actions",
+    "confidence": "Confidence",
+    "impact": "Impact",
+    "ruleTriggered": "Rule Triggered",
+    "entity": "Entity",
+    "escalation": "Escalation Needed",
+    "evidenceType": {
+      "data": "DATA",
+      "doc": "DOC",
+      "rule": "RULE"
+    }
+  },
+  "summary": {
+    "title": "Executive Summary",
+    "audience": {
+      "controller": "Controller",
+      "executive": "Executive"
+    },
+    "confidenceFooter": "Confidence Stats"
+  },
+  "audit": {
+    "title": "Audit Trail",
+    "overview": "Overview",
+    "duration": "Duration",
+    "steps": "Steps",
+    "toolCalls": "Tool Calls",
+    "llmCalls": "LLM Calls",
+    "confidence": "Confidence",
+    "cost": "Cost",
+    "input": "Input",
+    "output": "Output",
+    "retries": "Retries",
+    "error": "Error"
+  },
+  "config": {
+    "title": "Configuration",
+    "connectedData": "Connected Data",
+    "knowledgePacks": "Knowledge Packs",
+    "businessRules": "Business Rules",
+    "enabledTools": "Enabled Tools",
+    "rules": {
+      "ic_mismatch_tolerance": "IC mismatch tolerance: 2% of transaction value",
+      "manual_adjustment_threshold": "Manual adjustment threshold: JPY 10,000,000",
+      "anomaly_detection_threshold": "Anomaly detection threshold: 15% MoM change",
+      "materiality_income_statement": "Materiality (P&L): JPY 50,000,000",
+      "materiality_balance_sheet": "Materiality (BS): JPY 100,000,000",
+      "budget_variance_threshold": "Budget variance threshold: 10% of budget",
+      "kpi_breach_threshold": "KPI breach threshold: Target ± 20%",
+      "margin_erosion_alert": "Margin erosion alert: 3 percentage points decline",
+      "dso_warning_threshold": "DSO warning threshold: 50 days",
+      "churn_rate_ceiling": "Churn rate ceiling: 2.5% monthly"
+    },
+    "tools": {
+      "get_trial_balances": "Fetch trial balance data by entity and period",
+      "get_ic_transactions": "Fetch intercompany transactions by period",
+      "get_exchange_rates": "Fetch exchange rates by currency pair and date",
+      "match_ic_pairs": "Match IC transaction pairs and detect mismatches",
+      "detect_anomalies": "Statistical anomaly detection on financial data",
+      "search_documents": "Keyword search over knowledge pack documents",
+      "get_budgets": "Fetch budget data by entity, account, and period",
+      "get_kpis": "Fetch KPI values and targets by entity and period"
+    }
+  },
+  "dataExplorer": {
+    "title": "Source Data",
+    "viewData": "View Source Data",
+    "period": "Period: {{period}}",
+    "trialBalances": "Trial Balances",
+    "icTransactions": "IC Transactions",
+    "kpis": "KPIs",
+    "entity": "Entity",
+    "account": "Account",
+    "type": "Type",
+    "debit": "Debit",
+    "credit": "Credit",
+    "from": "From",
+    "to": "To",
+    "amount": "Amount",
+    "currency": "Currency",
+    "invoiceDate": "Invoice Date",
+    "recordedDate": "Recorded Date",
+    "mismatch": "Mismatch",
+    "kpiName": "KPI",
+    "value": "Value",
+    "target": "Target",
+    "unit": "Unit"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "empty": "No data available",
+    "back": "Back",
+    "close": "Close",
+    "expand": "Expand",
+    "collapse": "Collapse"
+  }
+}

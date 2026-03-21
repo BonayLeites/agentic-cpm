@@ -1,0 +1,170 @@
+{
+  "app": {
+    "title": "CPM Agent Accelerator",
+    "subtitle": "NikkoGroup | v1.0"
+  },
+  "nav": {
+    "home": "ホーム",
+    "workflowRun": "ワークフロー実行",
+    "findings": "検出事項",
+    "summary": "エグゼクティブサマリー",
+    "audit": "監査証跡"
+  },
+  "home": {
+    "selectWorkflow": "ワークフローを選択",
+    "case1Title": "決算前レビュー・連結確認",
+    "case1Desc": "決算前レビューを自動化：内部取引照合、異常検出、例外の優先順位付け。",
+    "case1Audience": "対象：コントローラー",
+    "case2Title": "エグゼクティブ業績レビュー",
+    "case2Desc": "業績データを意思決定支援に変換：差異分析、KPI統合、リスク指標、取締役会資料。",
+    "case2Audience": "対象：CFO / 経営会議",
+    "select": "選択",
+    "statsTemplate": "{{entities}} エンティティ | {{months}} ヶ月分データ | {{docs}} ナレッジドキュメント"
+  },
+  "workflow": {
+    "runButton": "AIレビューを実行",
+    "running": "実行中...",
+    "viewConfig": "設定を表示",
+    "viewFindings": "検出事項を表示",
+    "viewSummary": "サマリーを表示",
+    "timeline": "ワークフロータイムライン",
+    "activityLog": "アクティビティログ",
+    "statusLabel": "ステータス",
+    "totalTime": "合計",
+    "stepsCompleted": "{{completed}}/{{total}}",
+    "parallel": "並列",
+    "status": {
+      "pending": "保留中",
+      "running": "実行中",
+      "completed": "完了",
+      "failed": "失敗",
+      "queued": "待機中",
+      "escalated": "エスカレーション"
+    },
+    "stepNames": {
+      "load_data": "データ検証",
+      "ic_check": "内部取引レビュー",
+      "anomaly_detect": "異常検出スキャン",
+      "doc_search": "ドキュメント照合",
+      "analysis": "検出事項の統合",
+      "narrative": "サマリー生成",
+      "quality_gate": "品質管理ゲート",
+      "variance_analysis": "差異分析",
+      "kpi_analysis": "KPI分析"
+    },
+    "sse": {
+      "started": "開始",
+      "completed": "{{duration}}で完了 — {{findings}}件の検出",
+      "failed": "失敗: {{error}}",
+      "escalated": "エスカレーション: {{reason}}",
+      "runCompleted": "ワークフロー完了 — {{findings}}件の検出（{{duration}}）",
+      "reconnecting": "再接続中..."
+    }
+  },
+  "findings": {
+    "title": "検出事項",
+    "all": "すべて",
+    "severity": {
+      "high": "高",
+      "medium": "中",
+      "low": "低"
+    },
+    "evidence": "証拠",
+    "suggestedQuestions": "推奨質問",
+    "suggestedActions": "推奨アクション",
+    "confidence": "確信度",
+    "impact": "影響額",
+    "ruleTriggered": "該当ルール",
+    "entity": "エンティティ",
+    "escalation": "エスカレーション要",
+    "evidenceType": {
+      "data": "データ",
+      "doc": "文書",
+      "rule": "ルール"
+    }
+  },
+  "summary": {
+    "title": "エグゼクティブサマリー",
+    "audience": {
+      "controller": "コントローラー",
+      "executive": "エグゼクティブ"
+    },
+    "confidenceFooter": "確信度統計"
+  },
+  "audit": {
+    "title": "監査証跡",
+    "overview": "概要",
+    "duration": "所要時間",
+    "steps": "ステップ",
+    "toolCalls": "ツール呼び出し",
+    "llmCalls": "LLM呼び出し",
+    "confidence": "確信度",
+    "cost": "コスト",
+    "input": "入力",
+    "output": "出力",
+    "retries": "リトライ",
+    "error": "エラー"
+  },
+  "config": {
+    "title": "設定",
+    "connectedData": "接続データ",
+    "knowledgePacks": "ナレッジパック",
+    "businessRules": "ビジネスルール",
+    "enabledTools": "有効なツール",
+    "rules": {
+      "ic_mismatch_tolerance": "IC不一致許容範囲：取引額の2%",
+      "manual_adjustment_threshold": "手動調整閾値：1,000万円",
+      "anomaly_detection_threshold": "異常検出閾値：前月比15%変動",
+      "materiality_income_statement": "重要性（損益）：5,000万円",
+      "materiality_balance_sheet": "重要性（貸借）：1億円",
+      "budget_variance_threshold": "予算差異閾値：予算の10%",
+      "kpi_breach_threshold": "KPI逸脱閾値：目標値 ± 20%",
+      "margin_erosion_alert": "マージン低下警告：3ポイント低下",
+      "dso_warning_threshold": "DSO警告閾値：50日",
+      "churn_rate_ceiling": "チャーン上限：月2.5%"
+    },
+    "tools": {
+      "get_trial_balances": "エンティティと期間別の試算表データを取得",
+      "get_ic_transactions": "期間別の内部取引を取得",
+      "get_exchange_rates": "通貨ペアと日付別の為替レートを取得",
+      "match_ic_pairs": "内部取引ペアの照合と不一致検出",
+      "detect_anomalies": "財務データの統計的異常検出",
+      "search_documents": "ナレッジドキュメントのキーワード検索",
+      "get_budgets": "エンティティ・勘定・期間別の予算データを取得",
+      "get_kpis": "エンティティと期間別のKPI値と目標を取得"
+    }
+  },
+  "dataExplorer": {
+    "title": "ソースデータ",
+    "viewData": "ソースデータ表示",
+    "period": "期間: {{period}}",
+    "trialBalances": "試算表",
+    "icTransactions": "IC取引",
+    "kpis": "KPI",
+    "entity": "エンティティ",
+    "account": "勘定科目",
+    "type": "種類",
+    "debit": "借方",
+    "credit": "貸方",
+    "from": "送信元",
+    "to": "送信先",
+    "amount": "金額",
+    "currency": "通貨",
+    "invoiceDate": "請求日",
+    "recordedDate": "計上日",
+    "mismatch": "差異",
+    "kpiName": "KPI",
+    "value": "値",
+    "target": "目標",
+    "unit": "単位"
+  },
+  "common": {
+    "loading": "読み込み中...",
+    "error": "エラーが発生しました",
+    "empty": "データがありません",
+    "back": "戻る",
+    "close": "閉じる",
+    "expand": "展開",
+    "collapse": "折りたたむ"
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "app": {
+    "title": "CPM Agent Accelerator",
+    "subtitle": "NikkoGroup | v1.0"
+  },
+  "nav": {
+    "home": "Inicio",
+    "workflowRun": "Ejecución",
+    "findings": "Hallazgos",
+    "summary": "Resumen Ejecutivo",
+    "audit": "Auditoría"
+  },
+  "home": {
+    "selectWorkflow": "Seleccionar un flujo de trabajo",
+    "case1Title": "Revisión de Pre-Cierre y Consolidación",
+    "case1Desc": "Automatiza la revisión de pre-cierre: conciliación intercompañía, detección de anomalías, priorización de excepciones.",
+    "case1Audience": "Audiencia: Controller",
+    "case2Title": "Revisión Ejecutiva de Rendimiento",
+    "case2Desc": "Transforma datos de rendimiento en soporte para decisiones: análisis de variaciones, síntesis de KPIs, señales de riesgo, materiales para el consejo.",
+    "case2Audience": "Audiencia: CFO / ExCo",
+    "select": "Seleccionar",
+    "statsTemplate": "{{entities}} entidades | {{months}} meses de datos | {{docs}} documentos"
+  },
+  "workflow": {
+    "runButton": "Ejecutar Revisión IA",
+    "running": "Ejecutando...",
+    "viewConfig": "Ver Configuración",
+    "viewFindings": "Ver Hallazgos",
+    "viewSummary": "Ver Resumen",
+    "timeline": "Línea de Tiempo",
+    "activityLog": "Registro de Actividad",
+    "statusLabel": "Estado",
+    "totalTime": "Total",
+    "stepsCompleted": "{{completed}}/{{total}}",
+    "parallel": "paralelo",
+    "status": {
+      "pending": "Pendiente",
+      "running": "En Ejecución",
+      "completed": "Completado",
+      "failed": "Fallido",
+      "queued": "En Cola",
+      "escalated": "Escalado"
+    },
+    "stepNames": {
+      "load_data": "Validación de Datos",
+      "ic_check": "Revisión Intercompañía",
+      "anomaly_detect": "Detección de Anomalías",
+      "doc_search": "Búsqueda Documental",
+      "analysis": "Síntesis de Hallazgos",
+      "narrative": "Generación de Resúmenes",
+      "quality_gate": "Control de Calidad",
+      "variance_analysis": "Análisis de Varianzas",
+      "kpi_analysis": "Análisis de KPIs"
+    },
+    "sse": {
+      "started": "Iniciado",
+      "completed": "Completado en {{duration}} — {{findings}} hallazgos",
+      "failed": "Fallido: {{error}}",
+      "escalated": "Escalado: {{reason}}",
+      "runCompleted": "Flujo completado — {{findings}} hallazgos en {{duration}}",
+      "reconnecting": "Reconectando..."
+    }
+  },
+  "findings": {
+    "title": "Hallazgos",
+    "all": "Todos",
+    "severity": {
+      "high": "Alto",
+      "medium": "Medio",
+      "low": "Bajo"
+    },
+    "evidence": "Evidencia",
+    "suggestedQuestions": "Preguntas Sugeridas",
+    "suggestedActions": "Acciones Sugeridas",
+    "confidence": "Confianza",
+    "impact": "Impacto",
+    "ruleTriggered": "Regla Activada",
+    "entity": "Entidad",
+    "escalation": "Requiere Escalación",
+    "evidenceType": {
+      "data": "DATO",
+      "doc": "DOC",
+      "rule": "REGLA"
+    }
+  },
+  "summary": {
+    "title": "Resumen Ejecutivo",
+    "audience": {
+      "controller": "Controller",
+      "executive": "Ejecutivo"
+    },
+    "confidenceFooter": "Estadísticas de Confianza"
+  },
+  "audit": {
+    "title": "Auditoría",
+    "overview": "Resumen",
+    "duration": "Duración",
+    "steps": "Pasos",
+    "toolCalls": "Llamadas a Herramientas",
+    "llmCalls": "Llamadas LLM",
+    "confidence": "Confianza",
+    "cost": "Coste",
+    "input": "Entrada",
+    "output": "Salida",
+    "retries": "Reintentos",
+    "error": "Error"
+  },
+  "config": {
+    "title": "Configuración",
+    "connectedData": "Datos Conectados",
+    "knowledgePacks": "Base de Conocimiento",
+    "businessRules": "Reglas de Negocio",
+    "enabledTools": "Herramientas Habilitadas",
+    "rules": {
+      "ic_mismatch_tolerance": "Tolerancia IC: 2% del valor de la transacción",
+      "manual_adjustment_threshold": "Umbral ajuste manual: JPY 10.000.000",
+      "anomaly_detection_threshold": "Umbral de anomalías: 15% variación mensual",
+      "materiality_income_statement": "Materialidad (PyG): JPY 50.000.000",
+      "materiality_balance_sheet": "Materialidad (BS): JPY 100.000.000",
+      "budget_variance_threshold": "Umbral variación presupuesto: 10%",
+      "kpi_breach_threshold": "Umbral de KPI: Objetivo ± 20%",
+      "margin_erosion_alert": "Alerta de erosión de margen: 3 puntos porcentuales",
+      "dso_warning_threshold": "Umbral DSO: 50 días",
+      "churn_rate_ceiling": "Techo de churn: 2,5% mensual"
+    },
+    "tools": {
+      "get_trial_balances": "Obtener balances de sumas y saldos por entidad y período",
+      "get_ic_transactions": "Obtener transacciones intercompañía por período",
+      "get_exchange_rates": "Obtener tasas de cambio por par de divisas y fecha",
+      "match_ic_pairs": "Conciliar pares de transacciones IC y detectar desajustes",
+      "detect_anomalies": "Detección estadística de anomalías en datos financieros",
+      "search_documents": "Búsqueda por palabras clave en documentos",
+      "get_budgets": "Obtener presupuestos por entidad, cuenta y período",
+      "get_kpis": "Obtener valores y objetivos de KPIs por entidad y período"
+    }
+  },
+  "dataExplorer": {
+    "title": "Datos Origen",
+    "viewData": "Ver Datos Origen",
+    "period": "Período: {{period}}",
+    "trialBalances": "Balanza de Comprobación",
+    "icTransactions": "Transacciones IC",
+    "kpis": "KPIs",
+    "entity": "Entidad",
+    "account": "Cuenta",
+    "type": "Tipo",
+    "debit": "Debe",
+    "credit": "Haber",
+    "from": "Origen",
+    "to": "Destino",
+    "amount": "Importe",
+    "currency": "Moneda",
+    "invoiceDate": "Fecha Factura",
+    "recordedDate": "Fecha Registro",
+    "mismatch": "Desajuste",
+    "kpiName": "KPI",
+    "value": "Valor",
+    "target": "Objetivo",
+    "unit": "Unidad"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Ha ocurrido un error",
+    "empty": "No hay datos disponibles",
+    "back": "Volver",
+    "close": "Cerrar",
+    "expand": "Expandir",
+    "collapse": "Contraer"
+  }
+}
