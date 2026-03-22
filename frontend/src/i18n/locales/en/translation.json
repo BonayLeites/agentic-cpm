@@ -158,6 +158,12 @@
     "target": "Target",
     "unit": "Unit"
   },
+  "pin": {
+    "title": "Enter Demo Code",
+    "placeholder": "Access code",
+    "submit": "Continue",
+    "error": "Invalid code. Please try again."
+  },
   "common": {
     "loading": "Loading...",
     "error": "An error occurred",

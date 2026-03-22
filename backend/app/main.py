@@ -6,6 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.api.routes import audit, config_routes, data, findings, health, summary, workflows
 from app.config import settings
 from app.db.session import engine, init_db
+from app.middleware import DemoPinMiddleware
 
 
 @asynccontextmanager
@@ -22,6 +23,7 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+app.add_middleware(DemoPinMiddleware)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origins,

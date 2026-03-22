@@ -14,8 +14,15 @@ import type {
 
 export const API_BASE = import.meta.env.VITE_API_URL ?? "";
 
+function authHeaders(): Record<string, string> {
+  const token = localStorage.getItem("demoToken");
+  return token ? { "X-Demo-Token": token } : {};
+}
+
 async function apiGet<T>(path: string): Promise<T> {
-  const res = await fetch(`${API_BASE}${path}`);
+  const res = await fetch(`${API_BASE}${path}`, {
+    headers: { ...authHeaders() },
+  });
   if (!res.ok) {
     throw new Error(`API error ${res.status}: ${res.statusText}`);
   }
@@ -25,7 +32,7 @@ async function apiGet<T>(path: string): Promise<T> {
 async function apiPost<T, B>(path: string, body: B): Promise<T> {
   const res = await fetch(`${API_BASE}${path}`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json", ...authHeaders() },
     body: JSON.stringify(body),
   });
   if (!res.ok) {

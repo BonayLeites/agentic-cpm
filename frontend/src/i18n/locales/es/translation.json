@@ -158,6 +158,12 @@
     "target": "Objetivo",
     "unit": "Unidad"
   },
+  "pin": {
+    "title": "Código de Acceso",
+    "placeholder": "Código de demo",
+    "submit": "Continuar",
+    "error": "Código incorrecto. Inténtalo de nuevo."
+  },
   "common": {
     "loading": "Cargando...",
     "error": "Ha ocurrido un error",

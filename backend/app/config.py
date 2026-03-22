@@ -17,6 +17,7 @@ class Settings(BaseSettings):
     # Application
     app_version: str = "1.0.0"
     cors_origins: list[str] = ["http://localhost:3000"]
+    demo_pin: str = ""
 
     model_config = ConfigDict(env_file=".env", env_file_encoding="utf-8")
 

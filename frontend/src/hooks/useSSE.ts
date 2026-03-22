@@ -49,7 +49,9 @@ export function useSSE(runId: number | null) {
     if (!runId) return;
 
     function connect() {
-      const es = new EventSource(`${API_BASE}/api/workflows/${runId}/stream`);
+      const token = localStorage.getItem("demoToken");
+      const tokenParam = token ? `?token=${encodeURIComponent(token)}` : "";
+      const es = new EventSource(`${API_BASE}/api/workflows/${runId}/stream${tokenParam}`);
       esRef.current = es;
 
       es.onopen = () => {
