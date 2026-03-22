@@ -17,10 +17,13 @@ async def lifespan(app: FastAPI):
     await engine.dispose()
 
 
+_docs = {"docs_url": None, "redoc_url": None, "openapi_url": None} if settings.demo_pin else {}
+
 app = FastAPI(
     title="CPM Agent Accelerator",
     version=settings.app_version,
     lifespan=lifespan,
+    **_docs,
 )
 
 app.add_middleware(DemoPinMiddleware)
