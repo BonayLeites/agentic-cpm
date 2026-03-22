@@ -126,7 +126,7 @@ Place in `backend/.env` (see `.env.example`):
 
 | Variable | Default | Description |
 |---|---|---|
-| `DATABASE_URL` | `postgresql+asyncpg://postgres:postgres@db:5432/cpm` | PostgreSQL connection string |
+| `DATABASE_URL` | `postgresql+asyncpg://postgres:$POSTGRES_PASSWORD@db:5432/cpm` | PostgreSQL connection string |
 | `AZURE_AI_ENDPOINT` | _(required)_ | Azure AI Foundry endpoint URL |
 | `AZURE_AI_API_KEY` | _(required)_ | Azure AI API key |
 | `AZURE_AI_DEPLOYMENT_GPT4O` | `gpt-4o` | GPT-4o deployment name |
