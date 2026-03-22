@@ -176,9 +176,25 @@ cd frontend && npx tsc --noEmit
 
 ---
 
-## Infrastructure
+## Deployment
 
-Terraform modules under `infra/` provision the Azure resources needed for a cloud deployment: virtual network, Azure Database for PostgreSQL Flexible Server, container-based compute, and an Azure AI Foundry workspace. See `infra/README.md` for usage.
+### Option 1: Docker Compose on a VPS (recommended)
+
+Production-ready Docker Compose with nginx reverse proxy, gunicorn workers, and multi-stage frontend build:
+
+```bash
+cp .env.example .env
+# Edit .env with real Azure AI credentials and a secure POSTGRES_PASSWORD
+
+docker compose -f docker-compose.prod.yml up -d
+# App available at http://your-server:80
+```
+
+Three services: PostgreSQL, backend (gunicorn + uvicorn workers), frontend (nginx serving static files + API reverse proxy). Everything runs under a single domain — no CORS needed.
+
+### Option 2: Azure Cloud (Terraform)
+
+Terraform modules under `infra/` provision enterprise-grade Azure infrastructure: VNet with private subnets, Azure Database for PostgreSQL Flexible Server, Container Apps for backend and frontend, and Azure AI Foundry with model deployments. See `infra/README.md` for usage.
 
 ---
 
