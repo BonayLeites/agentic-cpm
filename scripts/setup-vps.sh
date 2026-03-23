@@ -15,7 +15,7 @@
 set -euo pipefail
 
 # --- Configuración ---
-DOMAIN="${CPM_DOMAIN:-cpm.bonay-santiago.com}"
+DOMAIN="${CPM_DOMAIN:-cpm.bonay.dev}"
 REPO_URL="${CPM_REPO:-https://github.com/EdisaBonay/agentic_cpm.git}"
 INSTALL_DIR="/opt/agentic_cpm"
 EMAIL="${CERTBOT_EMAIL:-bonay.santiago@gmail.com}"
@@ -75,7 +75,7 @@ if [ ! -f .env ]; then
     echo "    POSTGRES_PASSWORD=<password-seguro>"
     echo "    AZURE_AI_ENDPOINT=<tu-endpoint>"
     echo "    AZURE_AI_API_KEY=<tu-api-key>"
-    echo "    CORS_ORIGINS=[\"https://bonay-santiago.com\",\"https://$DOMAIN\"]"
+    echo "    CORS_ORIGINS=[\"https://bonay.dev\",\"https://$DOMAIN\"]"
     echo ""
     echo "  ⚠️  Edita .env ANTES de arrancar los contenedores."
 else
