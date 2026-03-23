@@ -12,6 +12,7 @@ from app.core.agent_base import (
 from app.core.tools.document_search import DocumentSearchTool
 from app.core.tools.ic_matching import ICMatchingTool
 from app.llm.gateway import get_gateway
+from app.llm.prompts import localize_prompt
 from app.llm.prompts.consolidation import IC_CHECK_SYSTEM
 
 logger = logging.getLogger(__name__)
@@ -64,7 +65,7 @@ class ICCheckAgent(BaseAgent):
         llm = get_gateway()
         response = await llm.complete(
             messages=[
-                {"role": "system", "content": IC_CHECK_SYSTEM},
+                {"role": "system", "content": localize_prompt(IC_CHECK_SYSTEM, context.language, json_mode=True)},
                 {"role": "user", "content": user_content},
             ],
             model="gpt-4o",

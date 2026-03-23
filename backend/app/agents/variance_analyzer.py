@@ -8,6 +8,7 @@ from app.core.agent_base import (
     parse_findings_json,
 )
 from app.llm.gateway import get_gateway
+from app.llm.prompts import localize_prompt
 from app.llm.prompts.performance import VARIANCE_ANALYSIS_SYSTEM
 
 _REVENUE_ACCOUNT = "4000"
@@ -39,9 +40,12 @@ class VarianceAnalyzerAgent(BaseAgent):
         )
 
         llm = get_gateway()
+        system = localize_prompt(
+            VARIANCE_ANALYSIS_SYSTEM, context.language, json_mode=True,
+        )
         response = await llm.complete(
             messages=[
-                {"role": "system", "content": VARIANCE_ANALYSIS_SYSTEM},
+                {"role": "system", "content": system},
                 {"role": "user", "content": user_content},
             ],
             model="gpt-4o",

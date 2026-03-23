@@ -91,6 +91,7 @@ class ConfigResponse(BaseModel):
 
 class WorkflowRunCreate(BaseModel):
     workflow_type: str
+    language: str = "en"
 
 
 class WorkflowRunResponse(BaseModel):

@@ -11,6 +11,7 @@ from app.core.agent_base import (
     parse_evidence_list,
 )
 from app.llm.gateway import get_gateway
+from app.llm.prompts import localize_prompt
 from app.llm.prompts.consolidation import QUALITY_GATE_SYSTEM
 
 logger = logging.getLogger(__name__)
@@ -44,7 +45,7 @@ class QualityGateAgent(BaseAgent):
         llm = get_gateway()
         response = await llm.complete(
             messages=[
-                {"role": "system", "content": QUALITY_GATE_SYSTEM},
+                {"role": "system", "content": localize_prompt(QUALITY_GATE_SYSTEM, context.language, json_mode=True)},
                 {"role": "user", "content": user_content},
             ],
             model="gpt-4o-mini",

@@ -9,6 +9,7 @@ from app.core.agent_base import (
     parse_findings_json,
 )
 from app.llm.gateway import get_gateway
+from app.llm.prompts import localize_prompt
 from app.llm.prompts.performance import KPI_ANALYSIS_SYSTEM
 
 # KPIs where an increase is negative (for trend direction)
@@ -45,7 +46,7 @@ class KPIAnalysisAgent(BaseAgent):
         llm = get_gateway()
         response = await llm.complete(
             messages=[
-                {"role": "system", "content": KPI_ANALYSIS_SYSTEM},
+                {"role": "system", "content": localize_prompt(KPI_ANALYSIS_SYSTEM, context.language, json_mode=True)},
                 {"role": "user", "content": user_content},
             ],
             model="gpt-4o-mini",

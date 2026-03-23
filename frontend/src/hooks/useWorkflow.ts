@@ -55,7 +55,7 @@ function liveStepsToResponse(steps: LiveStep[]): WorkflowStepResponse[] {
   }));
 }
 
-export function useWorkflow(workflowType: string | null) {
+export function useWorkflow(workflowType: string | null, language: string = "en") {
   const [run, setRun] = useState<WorkflowRunDetailResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -95,13 +95,13 @@ export function useWorkflow(workflowType: string | null) {
     setError(null);
     resetSSE();
     try {
-      const { run_id } = await createWorkflowRun(workflowType);
+      const { run_id } = await createWorkflowRun(workflowType, language);
       setRun(null);
       setSseRunId(run_id);
     } catch (e) {
       setError(e instanceof Error ? e.message : "Failed to start workflow");
     }
-  }, [workflowType, isRunning, resetSSE]);
+  }, [workflowType, isRunning, resetSSE, language]);
 
   const liveSteps: LiveStep[] = useMemo(() => {
     if (!isRunning || !workflowType) return [];

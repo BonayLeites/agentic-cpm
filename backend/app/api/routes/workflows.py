@@ -36,7 +36,7 @@ async def create_workflow_run(
     await session.refresh(run)
 
     queue = create_queue(run.id)
-    launch_workflow(body.workflow_type, run.id, queue)
+    launch_workflow(body.workflow_type, run.id, queue, body.language)
 
     return WorkflowRunResponse(run_id=run.id, status=run.status)
 

@@ -69,10 +69,10 @@
       "medium": "中",
       "low": "低"
     },
-    "evidence": "証拠",
-    "suggestedQuestions": "推奨質問",
+    "evidence": "根拠",
+    "suggestedQuestions": "確認事項",
     "suggestedActions": "推奨アクション",
-    "confidence": "確信度",
+    "confidence": "信頼度",
     "impact": "影響額",
     "ruleTriggered": "該当ルール",
     "entity": "エンティティ",
@@ -89,7 +89,7 @@
       "controller": "コントローラー",
       "executive": "エグゼクティブ"
     },
-    "confidenceFooter": "確信度統計"
+    "confidenceFooter": "信頼度サマリー"
   },
   "audit": {
     "title": "監査証跡",
@@ -98,7 +98,7 @@
     "steps": "ステップ",
     "toolCalls": "ツール呼び出し",
     "llmCalls": "LLM呼び出し",
-    "confidence": "確信度",
+    "confidence": "信頼度",
     "cost": "コスト",
     "input": "入力",
     "output": "出力",
@@ -146,8 +146,8 @@
     "type": "種類",
     "debit": "借方",
     "credit": "貸方",
-    "from": "送信元",
-    "to": "送信先",
+    "from": "取引元",
+    "to": "取引先",
     "amount": "金額",
     "currency": "通貨",
     "invoiceDate": "請求日",

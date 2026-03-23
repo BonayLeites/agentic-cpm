@@ -5,6 +5,7 @@ from typing import Any
 from app.core.agent_base import AgentContext, AgentResult, BaseAgent, StepMetrics
 from app.db.models import ExecutiveSummary
 from app.llm.gateway import get_gateway
+from app.llm.prompts import localize_prompt
 from app.llm.prompts.consolidation import (
     NARRATIVE_CONTROLLER_SYSTEM,
     NARRATIVE_EXECUTIVE_SYSTEM,
@@ -37,11 +38,23 @@ class NarrativeAgent(BaseAgent):
         llm = get_gateway()
 
         if context.workflow_type == "performance":
-            ctrl_system = PERFORMANCE_NARRATIVE_CONTROLLER_SYSTEM.format(period=period)
-            exec_system = PERFORMANCE_NARRATIVE_EXECUTIVE_SYSTEM.format(period=period)
+            ctrl_system = localize_prompt(
+                PERFORMANCE_NARRATIVE_CONTROLLER_SYSTEM.format(period=period),
+                context.language,
+            )
+            exec_system = localize_prompt(
+                PERFORMANCE_NARRATIVE_EXECUTIVE_SYSTEM.format(period=period),
+                context.language,
+            )
         else:
-            ctrl_system = NARRATIVE_CONTROLLER_SYSTEM.format(period=period)
-            exec_system = NARRATIVE_EXECUTIVE_SYSTEM.format(period=period)
+            ctrl_system = localize_prompt(
+                NARRATIVE_CONTROLLER_SYSTEM.format(period=period),
+                context.language,
+            )
+            exec_system = localize_prompt(
+                NARRATIVE_EXECUTIVE_SYSTEM.format(period=period),
+                context.language,
+            )
 
         ctrl_coro = llm.complete(
             messages=[

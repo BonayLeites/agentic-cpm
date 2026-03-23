@@ -91,8 +91,9 @@ export function getWorkflowRun(
 
 export function createWorkflowRun(
   workflowType: string,
+  language: string = "en",
 ): Promise<WorkflowRunResponse> {
-  return apiPost("/api/workflows/run", { workflow_type: workflowType });
+  return apiPost("/api/workflows/run", { workflow_type: workflowType, language });
 }
 
 // === Findings ===

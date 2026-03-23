@@ -79,12 +79,14 @@ class AgentContext:
         config: dict[str, str],
         session_factory: async_sessionmaker,
         memory: WorkflowMemory,
+        language: str = "en",
     ) -> None:
         self.run_id = run_id
         self.workflow_type = workflow_type
         self.config = config
         self.session_factory = session_factory
         self.memory = memory
+        self.language = language
 
 
 class BaseAgent(ABC):

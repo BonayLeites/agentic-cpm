@@ -9,6 +9,7 @@ from app.core.agent_base import (
     parse_findings_json,
 )
 from app.llm.gateway import get_gateway
+from app.llm.prompts import localize_prompt
 from app.llm.prompts.consolidation import ANALYSIS_SYSTEM
 from app.llm.prompts.performance import PERFORMANCE_ANALYSIS_SYSTEM
 
@@ -33,13 +34,15 @@ class AnalysisAgent(BaseAgent):
         period = memory_snapshot.get("period", "2026-02")
 
         if context.workflow_type == "performance":
-            system_prompt = PERFORMANCE_ANALYSIS_SYSTEM.format(
-                period=period, rules=rules_text,
+            system_prompt = localize_prompt(
+                PERFORMANCE_ANALYSIS_SYSTEM.format(period=period, rules=rules_text),
+                context.language, json_mode=True,
             )
             user_content = _build_performance_user_message(memory_snapshot)
         else:
-            system_prompt = ANALYSIS_SYSTEM.format(
-                period=period, rules=rules_text,
+            system_prompt = localize_prompt(
+                ANALYSIS_SYSTEM.format(period=period, rules=rules_text),
+                context.language, json_mode=True,
             )
             user_content = _build_user_message(memory_snapshot)
 

@@ -21,4 +21,12 @@ i18n
     },
   });
 
+// Sincronizar el atributo lang del HTML con el idioma activo.
+// Esto evita que Chrome auto-traduzca la pagina.
+function syncHtmlLang(lng: string) {
+  document.documentElement.lang = lng;
+}
+syncHtmlLang(i18n.language);
+i18n.on("languageChanged", syncHtmlLang);
+
 export default i18n;

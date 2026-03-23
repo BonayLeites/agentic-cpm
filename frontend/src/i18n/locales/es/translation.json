@@ -86,7 +86,7 @@
   "summary": {
     "title": "Resumen Ejecutivo",
     "audience": {
-      "controller": "Controller",
+      "controller": "Controlador",
       "executive": "Ejecutivo"
     },
     "confidenceFooter": "Estadísticas de Confianza"

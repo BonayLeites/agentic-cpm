@@ -20,7 +20,7 @@ const WORKFLOW_TITLE_KEYS: Record<WorkflowType, string> = {
 };
 
 export default function WorkflowRun() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [params] = useSearchParams();
   const workflowType = params.get("workflow");
   const [configOpen, setConfigOpen] = useState(false);
@@ -38,7 +38,7 @@ export default function WorkflowRun() {
     loading,
     error,
     triggerRun,
-  } = useWorkflow(workflowType);
+  } = useWorkflow(workflowType, i18n.language);
 
   if (!workflowType) {
     return <Navigate to="/" replace />;

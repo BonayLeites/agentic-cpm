@@ -31,10 +31,15 @@ def _to_decimal(value: float, places: int = 2) -> Decimal:
     return Decimal(str(round(value, places)))
 
 
-def launch_workflow(workflow_type: str, run_id: int, queue: asyncio.Queue[str | None]) -> None:
+def launch_workflow(
+    workflow_type: str,
+    run_id: int,
+    queue: asyncio.Queue[str | None],
+    language: str = "en",
+) -> None:
     """Launch the orchestrator as a background task with a safe reference."""
     orchestrator = WorkflowOrchestrator()
-    task = asyncio.create_task(orchestrator.run(workflow_type, run_id, queue))
+    task = asyncio.create_task(orchestrator.run(workflow_type, run_id, queue, language))
     _background_tasks.add(task)
     task.add_done_callback(_background_tasks.discard)
 
@@ -50,12 +55,13 @@ class WorkflowOrchestrator:
         workflow_type: str,
         run_id: int,
         event_queue: asyncio.Queue[str | None],
+        language: str = "en",
     ) -> None:
         """Run the workflow as a background task."""
         run_start = time.monotonic()
 
         try:
-            await self._execute_workflow(workflow_type, run_id, event_queue, run_start)
+            await self._execute_workflow(workflow_type, run_id, event_queue, run_start, language)
         except Exception:
             logger.exception("Error fatal en workflow run_id=%d", run_id)
             try:
@@ -86,6 +92,7 @@ class WorkflowOrchestrator:
         run_id: int,
         event_queue: asyncio.Queue[str | None],
         run_start: float,
+        language: str = "en",
     ) -> None:
         # Prepare steps, DAG, and rules
         step_defs = get_workflow_steps(workflow_type)
@@ -127,6 +134,7 @@ class WorkflowOrchestrator:
             config=rules,
             session_factory=async_session,
             memory=memory,
+            language=language,
         )
 
         # DAG execution loop

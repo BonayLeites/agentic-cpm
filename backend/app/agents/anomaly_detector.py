@@ -10,6 +10,7 @@ from app.core.agent_base import (
 )
 from app.core.tools.anomaly_detection import AnomalyDetectionTool
 from app.llm.gateway import get_gateway
+from app.llm.prompts import localize_prompt
 from app.llm.prompts.consolidation import ANOMALY_DETECT_SYSTEM
 
 logger = logging.getLogger(__name__)
@@ -65,7 +66,7 @@ class AnomalyDetectorAgent(BaseAgent):
         llm = get_gateway()
         response = await llm.complete(
             messages=[
-                {"role": "system", "content": ANOMALY_DETECT_SYSTEM},
+                {"role": "system", "content": localize_prompt(ANOMALY_DETECT_SYSTEM, context.language, json_mode=True)},
                 {"role": "user", "content": user_content},
             ],
             model="gpt-4o-mini",
