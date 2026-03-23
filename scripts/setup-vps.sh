@@ -77,7 +77,7 @@ if [ ! -f .env ]; then
     echo "    AZURE_AI_API_KEY=<tu-api-key>"
     echo "    CORS_ORIGINS=[\"https://bonay-santiago.com\",\"https://$DOMAIN\"]"
     echo ""
-    read -p "  Presiona Enter cuando hayas editado .env..." _
+    echo "  ⚠️  Edita .env ANTES de arrancar los contenedores."
 else
     echo "  .env ya existe."
 fi
@@ -112,7 +112,15 @@ sudo ufw allow 80/tcp   # HTTP (redirect)
 sudo ufw allow 443/tcp  # HTTPS
 sudo ufw --force enable
 
-# --- 9. Arrancar servicios ---
+# --- 9. Renovación automática de certificados SSL ---
+echo "[9] Configurando renovación automática de SSL..."
+cat <<'CRON' | sudo tee /etc/cron.d/certbot-renew > /dev/null
+# Renovar certificado SSL cada domingo a las 3:00 AM
+0 3 * * 0 root certbot renew --pre-hook "cd /opt/agentic_cpm && docker compose -f docker-compose.prod.yml -f docker-compose.ssl.yml stop frontend" --post-hook "cd /opt/agentic_cpm && docker compose -f docker-compose.prod.yml -f docker-compose.ssl.yml start frontend" >> /var/log/certbot-renew.log 2>&1
+CRON
+echo "  Cron job de renovación SSL configurado."
+
+# --- 10. Arrancar servicios ---
 echo ""
 echo "================================================="
 echo " Setup completo. Para arrancar:"
