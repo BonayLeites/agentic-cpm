@@ -1,6 +1,7 @@
 import { useState, useEffect, type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import { API_BASE } from "../api/client";
+import LanguageSelector from "./LanguageSelector";
 
 const TOKEN_KEY = "demoToken";
 
@@ -106,6 +107,10 @@ export default function PinGate({ children }: { children: ReactNode }) {
             {submitting ? "..." : t("pin.submit")}
           </button>
         </form>
+
+        <div className="mt-6 flex justify-center">
+          <LanguageSelector />
+        </div>
       </div>
     </div>
   );
