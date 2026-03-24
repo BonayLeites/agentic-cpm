@@ -16,7 +16,7 @@ set -euo pipefail
 
 # --- Configuración ---
 DOMAIN="${CPM_DOMAIN:-cpm.bonay.dev}"
-REPO_URL="${CPM_REPO:-https://github.com/EdisaBonay/agentic_cpm.git}"
+REPO_URL="${CPM_REPO:-https://github.com/BonayLeites/agentic-cpm.git}"
 INSTALL_DIR="/opt/agentic_cpm"
 EMAIL="${CERTBOT_EMAIL:-bonay.santiago@gmail.com}"
 
